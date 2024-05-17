@@ -7,6 +7,8 @@ import LoginPage from "./components/Login/LoginPage.jsx";
 import Layout from "./Layout/Layout.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
+import CartPage from "./components/pages/CartPage.jsx";
+import ElectronicsPage from "./components/pages/ElectronicsPage.jsx";
 
 const appRoutes = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const appRoutes = createBrowserRouter([
       {
         path: "/login",
         element: <LoginPage />,
+      },
+      {
+        path: "/cart",
+        element: <CartPage />,
+      },
+      {
+        path: "/electronics",
+        element: <ElectronicsPage />,
       },
     ],
   },
