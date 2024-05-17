@@ -9,6 +9,9 @@ import { Provider } from "react-redux";
 import store from "./store/store.js";
 import CartPage from "./components/pages/CartPage.jsx";
 import ElectronicsPage from "./components/pages/ElectronicsPage.jsx";
+import JewelryPage from "./components/pages/JewelryPage.jsx";
+import MeansPage from "./components/pages/MeansPage.jsx";
+import WomensPage from "./components/pages/WomensPage.jsx";
 
 const appRoutes = createBrowserRouter([
   {
@@ -30,6 +33,18 @@ const appRoutes = createBrowserRouter([
       {
         path: "/electronics",
         element: <ElectronicsPage />,
+      },
+      {
+        path: "/jewelry",
+        element: <JewelryPage />,
+      },
+      {
+        path: "/means",
+        element: <MeansPage />,
+      },
+      {
+        path: "/womens",
+        element: <WomensPage />,
       },
     ],
   },

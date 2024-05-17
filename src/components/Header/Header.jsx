@@ -64,21 +64,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/about"
-                  className={({ isActive }) =>
-                    `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
-                      isActive
-                        ? "text-red-500 font-bold"
-                        : "text-gray-800 font-bold"
-                    }`
-                  }
-                >
-                  About
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
-                  to="/contact-us"
+                  to="/jewelry"
                   className={({ isActive }) =>
                     `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0  ${
                       isActive
@@ -87,7 +73,35 @@ const Header = () => {
                     }`
                   }
                 >
-                  Contact Us
+                  Jewelry
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/means"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0  ${
+                      isActive
+                        ? "text-red-500 font-bold"
+                        : "text-gray-800 font-bold"
+                    }`
+                  }
+                >
+                  Means
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/womens"
+                  className={({ isActive }) =>
+                    `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0  ${
+                      isActive
+                        ? "text-red-500 font-bold"
+                        : "text-gray-800 font-bold"
+                    }`
+                  }
+                >
+                  Womens
                 </NavLink>
               </li>
             </ul>
