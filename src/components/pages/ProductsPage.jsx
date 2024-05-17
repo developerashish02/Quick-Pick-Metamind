@@ -5,13 +5,14 @@ import useAllProducts from "../../hooks/useAllProducts";
 import Product from "../common/Product";
 import { truncateText } from "../../helpers/helper";
 import Loading from "../common/Loading";
+import Shimmer from "../common/Shimmer";
 
 const ProductsPage = () => {
   useAllProducts();
   const products = useSelector((store) => store.products?.allProducts);
 
   if (products.length === 0) {
-    return <Loading />;
+    return <Shimmer />;
   }
 
   return (

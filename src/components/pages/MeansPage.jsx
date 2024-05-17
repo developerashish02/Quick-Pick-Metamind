@@ -2,10 +2,15 @@ import { useSelector } from "react-redux";
 import { truncateText } from "../../helpers/helper";
 import useMeans from "../../hooks/useMeans";
 import Product from "../common/Product";
+import Shimmer from "../common/Shimmer";
 
 const MeansPage = () => {
   useMeans();
   const meansItems = useSelector((store) => store?.products?.means);
+
+  if (meansItems?.length === 0) {
+    return <Shimmer/>;
+  }
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 text-white p-4">

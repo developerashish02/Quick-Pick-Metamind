@@ -2,10 +2,16 @@ import { useSelector } from "react-redux";
 import { truncateText } from "../../helpers/helper";
 import useWomen from "../../hooks/useWomen";
 import Product from "../common/Product";
+import Shimmer from "../common/Shimmer";
 
 const WomensPage = () => {
   useWomen();
   const womensItem = useSelector((store) => store?.products?.womens);
+
+  if (womensItem?.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 text-white p-4">

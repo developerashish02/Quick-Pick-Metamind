@@ -3,10 +3,16 @@ import Product from "../common/Product";
 import { useSelector } from "react-redux";
 import { truncateText } from "../../helpers/helper";
 import useElectronics from "../../hooks/useElectronics";
+import Shimmer from "../common/Shimmer";
 
 const ElectronicsPage = () => {
   useElectronics();
   const electronicsItems = useSelector((store) => store?.products?.electronics);
+
+  if (electronicsItems?.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 text-white p-4">

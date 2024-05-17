@@ -23,7 +23,7 @@ const Product = ({ product, truncateText }) => {
         {pathname === "/cart" && (
           <p className="text-blue-500 mt-4 font-bold">
             Quantity: {product?.quantity}
-          </p>
+          </p>  
         )}
       </div>
 

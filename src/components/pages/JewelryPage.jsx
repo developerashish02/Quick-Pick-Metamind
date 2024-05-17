@@ -2,10 +2,16 @@ import { useSelector } from "react-redux";
 import { truncateText } from "../../helpers/helper";
 import Product from "../common/Product";
 import useJewelry from "../../hooks/useJewelry";
+import Shimmer from "../common/Shimmer";
 
 const JewelryPage = () => {
   useJewelry();
   const JewelryItems = useSelector((store) => store?.products?.Jewelry);
+
+  if (JewelryItems?.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 text-white p-4">

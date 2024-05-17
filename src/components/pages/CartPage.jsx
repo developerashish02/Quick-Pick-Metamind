@@ -2,10 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Product from "../common/Product";
 import { truncateText } from "../../helpers/helper";
+import Shimmer from "../common/Shimmer";
 
 const CartPage = () => {
   const cartItems = useSelector((store) => store?.cart?.cart);
   const price = useSelector((store) => store?.cart?.totalPrice);
+
+  if (cartItems?.length === 0) {
+    return <Shimmer />;
+  }
+
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 text-white p-4 flex justify-center items-center space-x-4">
