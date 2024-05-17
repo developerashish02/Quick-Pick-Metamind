@@ -3,13 +3,17 @@ import { truncateText } from "../../helpers/helper";
 import useMeans from "../../hooks/useMeans";
 import Product from "../common/Product";
 import Shimmer from "../common/Shimmer";
+import useSortedProducts from "../../hooks/useSortedProducts";
+import SortSelect from "../common/SortSelect";
 
 const MeansPage = () => {
   useMeans();
   const meansItems = useSelector((store) => store?.products?.means);
+  const { sortedProducts, sortOrder, handleSortChange } =
+    useSortedProducts(meansItems);
 
   if (meansItems?.length === 0) {
-    return <Shimmer/>;
+    return <Shimmer />;
   }
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -19,8 +23,11 @@ const MeansPage = () => {
 
       <main className="p-4">
         <div className="container mx-auto">
+          <div className="flex justify-end mb-4">
+            <SortSelect sortOrder={sortOrder} onSortChange={handleSortChange} />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {meansItems?.map((product) => (
+            {sortedProducts?.map((product) => (
               <Product
                 product={product}
                 key={product?.id}

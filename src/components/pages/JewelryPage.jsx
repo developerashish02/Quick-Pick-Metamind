@@ -3,10 +3,15 @@ import { truncateText } from "../../helpers/helper";
 import Product from "../common/Product";
 import useJewelry from "../../hooks/useJewelry";
 import Shimmer from "../common/Shimmer";
+import SortSelect from "../common/SortSelect";
+import useSortedProducts from "../../hooks/useSortedProducts";
 
 const JewelryPage = () => {
   useJewelry();
   const JewelryItems = useSelector((store) => store?.products?.Jewelry);
+
+  const { sortedProducts, sortOrder, handleSortChange } =
+    useSortedProducts(JewelryItems);
 
   if (JewelryItems?.length === 0) {
     return <Shimmer />;
@@ -20,8 +25,11 @@ const JewelryPage = () => {
 
       <main className="p-4">
         <div className="container mx-auto">
+          <div className="flex justify-end mb-4">
+            <SortSelect sortOrder={sortOrder} onSortChange={handleSortChange} />
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {JewelryItems?.map((product) => (
+            {sortedProducts?.map((product) => (
               <Product
                 product={product}
                 key={product?.id}
