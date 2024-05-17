@@ -1,7 +1,12 @@
 import "./App.css";
+import ProductsPage from "./components/pages/ProductsPage";
 
 const App = () => {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <div>
+      <ProductsPage />
+    </div>
+  );
 };
 
 export default App;
