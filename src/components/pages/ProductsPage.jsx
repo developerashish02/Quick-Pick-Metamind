@@ -4,10 +4,15 @@ import { useSelector } from "react-redux";
 import useAllProducts from "../../hooks/useAllProducts";
 import Product from "../common/Product";
 import { truncateText } from "../../helpers/helper";
+import Loading from "../common/Loading";
 
 const ProductsPage = () => {
   useAllProducts();
   const products = useSelector((store) => store.products?.allProducts);
+
+  if (products.length === 0) {
+    return <Loading />;
+  }
 
   return (
     <div className="bg-gray-100 min-h-screen">

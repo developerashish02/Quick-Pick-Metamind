@@ -1,6 +1,8 @@
+import { useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+  const cartItems = useSelector((store) => store.cart.cart);
   return (
     <header className="shadow sticky z-50 top-0">
       <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5">
@@ -12,13 +14,14 @@ const Header = () => {
               alt="Logo"
             />
           </Link>
-          <div className="flex items-center lg:order-2">
-            <Link
-              to="#"
-              className="text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-            >
-              Log in
+          <div className="flex items-center lg:order-2 space-x-4 ">
+            <Link to="/cart" className="text-xl">
+              <span className="hover:text-gray-300">
+                <i className="fa-solid fa-cart-shopping "></i>
+              </span>
+              <span>({cartItems?.length})</span>
             </Link>
+
             <Link
               to="#"
               className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
@@ -42,7 +45,7 @@ const Header = () => {
                     }`
                   }
                 >
-                  Home
+                  All Products
                 </NavLink>
               </li>
               <li>
