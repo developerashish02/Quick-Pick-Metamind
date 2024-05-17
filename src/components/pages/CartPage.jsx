@@ -5,10 +5,12 @@ import { truncateText } from "../../helpers/helper";
 
 const CartPage = () => {
   const cartItems = useSelector((store) => store?.cart?.cart);
+  const price = useSelector((store) => store?.cart?.totalPrice);
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header className="bg-blue-500 text-white p-4">
+      <header className="bg-blue-500 text-white p-4 flex justify-center items-center space-x-4">
         <h1 className="text-3xl font-bold text-center">Cart</h1>
+        <p> Total Price : {price} </p>
       </header>
 
       <main className="p-4">
