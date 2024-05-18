@@ -1,8 +1,17 @@
-# React + Vite
+# Your App Name
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Brief description of your app.
 
-Currently, two official plugins are available:
+## How to Use
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/developerashish02/Quick-Pick-Metamind
+   ```
+
+2.npm install
+
+3. npm run dev
+
+Replace `Quick Pick` and `https://quick-pick-metamind.netlify.app/`
