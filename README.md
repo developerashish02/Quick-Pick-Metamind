@@ -1,6 +1,5 @@
 # Order Easy
 
-Brief description of your app.
 
 ## How to Use
 
