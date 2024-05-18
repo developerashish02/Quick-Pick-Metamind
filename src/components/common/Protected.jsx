@@ -5,15 +5,13 @@ import useAuth from "../../hooks/useAuth";
 const Protected = () => {
   const { isAuthenticated, loading } = useAuth();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  console.log(isAuthenticated, "isisAuthenticated");
 
   if (isAuthenticated) {
-    return <Outlet />;
+    return <Navigate to="/login" replace />;
   }
 
-  return <Navigate to="/login" replace />;
+  return <Outlet />;
 };
 
 export default Protected;

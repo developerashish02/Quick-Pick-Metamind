@@ -1,22 +1,40 @@
+// src/pages/LoginPage.js
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useLogin from "../../hooks/useLogin";
 
 const LoginPage = () => {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
-  const { login, loading, error } = useLogin();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
+    setError(null);
 
     try {
-      await login(username, password);
-      navigate("/");
-    } catch (err) {
-      console.error("Error:", err);
+      const response = await fetch("https://fakestoreapi.com/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+      if (response.ok) {
+        localStorage.setItem("token", data.token);
+        navigate("/");
+      } else {
+        setError(data.message || "Something went wrong");
+      }
+    } catch (error) {
+      setError("Network error");
+    } finally {
+      setLoading(false);
     }
   };
 

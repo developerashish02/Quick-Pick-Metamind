@@ -4,12 +4,8 @@ import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
+  const { isAuthenticated, logout } = useAuth();
   const cartItems = useSelector((store) => store.cart.cart);
-  const { isAuthenticated, loading, logout } = useAuth();
-
-  if (loading) {
-    return null; // or render a loading indicator
-  }
 
   return (
     <header className="shadow sticky z-50 top-0">
@@ -23,18 +19,16 @@ const Header = () => {
             />
           </Link>
           <div className="flex items-center lg:order-2 space-x-4">
-            {isAuthenticated && (
-              <Link to="/cart" className="text-xl">
-                <span className="hover:text-gray-300">
-                  <i className="fa-solid fa-cart-shopping"></i>
-                </span>
-                <span>({cartItems?.length})</span>
-              </Link>
-            )}
+            <Link to="/cart" className="text-xl">
+              <span className="hover:text-gray-300">
+                <i className="fa-solid fa-cart-shopping"></i>
+              </span>
+              <span>({cartItems?.length})</span>
+            </Link>
             <Link
-              to="#"
+              to={isAuthenticated ? "#" : "/login"}
               className="text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
-              onClick={logout}
+              onClick={isAuthenticated ? logout : null}
             >
               {isAuthenticated ? "Sign Out" : "Sign In"}
             </Link>
@@ -115,6 +109,38 @@ const Header = () => {
                     Women's Clothing
                   </NavLink>
                 </li>
+                {isAuthenticated && (
+                  <>
+                    <li>
+                      <NavLink
+                        to="/profile"
+                        className={({ isActive }) =>
+                          `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
+                            isActive
+                              ? "text-red-500 font-bold"
+                              : "text-gray-800 font-bold"
+                          }`
+                        }
+                      >
+                        Profile
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/orders"
+                        className={({ isActive }) =>
+                          `block py-2 pr-4 pl-3 duration-200 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 hover:text-orange-700 lg:p-0 ${
+                            isActive
+                              ? "text-red-500 font-bold"
+                              : "text-gray-800 font-bold"
+                          }`
+                        }
+                      >
+                        Orders
+                      </NavLink>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
           )}
