@@ -1,4 +1,4 @@
-# Your App Name
+# Order Easy
 
 Brief description of your app.
 
@@ -14,4 +14,5 @@ Brief description of your app.
 
 3. npm run dev
 
-Replace `Quick Pick` and `https://quick-pick-metamind.netlify.app/`
+`Quick Pick` 
+checkout  - `https://quick-pick-metamind.netlify.app/`
