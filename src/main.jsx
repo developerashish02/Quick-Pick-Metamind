@@ -44,11 +44,11 @@ const appRoutes = createBrowserRouter([
             element: <JewelryPage />,
           },
           {
-            path: "/means",
+            path: "/men",
             element: <MeansPage />,
           },
           {
-            path: "/womens",
+            path: "/women",
             element: <WomensPage />,
           },
         ],
