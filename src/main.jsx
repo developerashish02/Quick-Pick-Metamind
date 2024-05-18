@@ -12,6 +12,7 @@ import ElectronicsPage from "./components/pages/ElectronicsPage.jsx";
 import JewelryPage from "./components/pages/JewelryPage.jsx";
 import MeansPage from "./components/pages/MeansPage.jsx";
 import WomensPage from "./components/pages/WomensPage.jsx";
+import Protected from "./components/common/Protected.jsx";
 
 const appRoutes = createBrowserRouter([
   {
@@ -19,32 +20,38 @@ const appRoutes = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
-        element: <App />,
-      },
-      {
         path: "/login",
         element: <LoginPage />,
       },
       {
-        path: "/cart",
-        element: <CartPage />,
-      },
-      {
-        path: "/electronics",
-        element: <ElectronicsPage />,
-      },
-      {
-        path: "/jewelry",
-        element: <JewelryPage />,
-      },
-      {
-        path: "/means",
-        element: <MeansPage />,
-      },
-      {
-        path: "/womens",
-        element: <WomensPage />,
+        element: <Protected />,
+        children: [
+          {
+            path: "/",
+            element: <App />,
+          },
+
+          {
+            path: "/cart",
+            element: <CartPage />,
+          },
+          {
+            path: "/electronics",
+            element: <ElectronicsPage />,
+          },
+          {
+            path: "/jewelry",
+            element: <JewelryPage />,
+          },
+          {
+            path: "/means",
+            element: <MeansPage />,
+          },
+          {
+            path: "/womens",
+            element: <WomensPage />,
+          },
+        ],
       },
     ],
   },
