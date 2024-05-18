@@ -8,15 +8,11 @@ const CartPage = () => {
   const cartItems = useSelector((store) => store?.cart?.cart);
   const price = useSelector((store) => store?.cart?.totalPrice);
 
-  if (cartItems?.length === 0) {
-    return <Shimmer />;
-  }
-
   return (
     <div className="bg-gray-100 min-h-screen">
       <header className="bg-blue-500 text-white p-4 flex justify-center items-center space-x-4">
         <h1 className="text-3xl font-bold text-center">Cart</h1>
-        <p> Total Price : {price} </p>
+        <p> Total Price : {price?.toFixed(2)} </p>
       </header>
 
       <main className="p-4">
