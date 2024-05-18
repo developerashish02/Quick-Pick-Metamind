@@ -28,11 +28,9 @@ const LoginPage = () => {
       if (response.ok) {
         localStorage.setItem("token", data.token);
         navigate("/");
-      } else {
-        setError(data.message || "Something went wrong");
       }
     } catch (error) {
-      setError("Network error");
+      setError("Unauthorized access!!");
     } finally {
       setLoading(false);
     }
@@ -42,7 +40,7 @@ const LoginPage = () => {
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <h2 className="mt-10 text-center text-2xl font-bold text-gray-900">
-          Sign in to your account
+          Login to your account
         </h2>
       </div>
 
@@ -97,7 +95,7 @@ const LoginPage = () => {
               type="submit"
               className="flex w-full justify-center text-white bg-orange-700 hover:bg-orange-800 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 focus:outline-none"
             >
-              {loading ? "Sign in..." : "Sign In"}
+              {loading ? "Submit..." : "Submit"}
             </button>
           </div>
         </form>
